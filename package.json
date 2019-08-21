@@ -1,0 +1,49 @@
+{
+  "name": "priprava",
+  "version": "0.4.1",
+  "description": "Template engine for describing JSON with dynamic data.",
+  "keywords": [
+    "json",
+    "template",
+    "object"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.build.json",
+    "validate": "tsc --noEmit",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest",
+    "test-coverage": "yarn jest --coverage",
+    "prepack": "yarn build",
+    "postpack": "rm -rf ./dist"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn test"
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "author": "Said Magomedov <saids.inbox@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/said-m/priprava.git"
+  },
+  "bugs": "https://github.com/said-m/priprava/issues",
+  "devDependencies": {
+    "@types/jest": "^24.0.16",
+    "@types/lodash": "^4.14.136",
+    "@types/node": "^12.6.9",
+    "husky": "^3.0.2",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
