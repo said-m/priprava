@@ -6,7 +6,7 @@ import { InputInterface, SimpleObjectInterface } from './utils/interfaces/common
 import { PripravaInitInterface, PripravaInputSettingsInterface, PripravaParserOutputInterface } from './utils/interfaces/priprava';
 
 /** Priprava - парсер динамических JSON-ов */
-export class Priprava {
+export default class Priprava {
   /** Переменные окружения */
   readonly store: SimpleObjectInterface;
   /** Опции */
