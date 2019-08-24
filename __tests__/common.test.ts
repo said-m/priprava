@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import Priprava from '../src';
 import { PripravaParserOutputInterface } from '../src/utils/interfaces/priprava';
-import { TEST_SETTINGS } from './utils/constants';
+import { TEST_DATA, TEST_SETTINGS } from './utils/constants';
 
 describe('Общая проверка', () => {
   const data = cloneDeep(TEST_SETTINGS.scope);
@@ -53,6 +53,18 @@ function environment() {
       },
       {
         $temp: true,
+        if: 'promo.has',
+        template: {
+          component: 'promo',
+          content: {
+            $temp: true,
+            template: 'Осторожно, продакт-плейсмент: ${ promo.text }',
+          },
+        },
+      },
+      'В объектах ниже меняется только строка. Вывод, шаблонизируем его.',
+      {
+        $temp: true,
         for: {
           item: 'thisText',
           mode: 'of',
@@ -66,6 +78,7 @@ function environment() {
           },
         },
       },
+      'Сформировать массив - мало, хочется организовать условия на его содержимое!',
       {
         component: 'list',
         content: {
@@ -75,7 +88,11 @@ function environment() {
             mode: 'of',
             data: 'list',
           },
-          template: '${ thisItem }',
+          template: {
+            $temp: true,
+            if: 'thisItem.length <= 70',
+            template: '${ thisItem }',
+          },
         },
       },
       {
@@ -84,7 +101,7 @@ function environment() {
           title: 'Заголовок поля',
           text: {
             $temp: true,
-            template: '${ input }',
+            template: '"${ input }" - интерполяция в строках в деле!',
           },
           description: 'Дополнительное описание',
         },
@@ -99,6 +116,11 @@ function environment() {
         content: 'Пример объекта, который должен сформировать класс.',
       },
       {
+        component: 'promo',
+        content: `Осторожно, продакт-плейсмент: ${ TEST_DATA.promo.text }`,
+      },
+      'В объектах ниже меняется только строка. Вывод, шаблонизируем его.',
+      {
         component: 'text',
         content: 'Это описание компоненты текста.',
       },
@@ -112,6 +134,7 @@ function environment() {
         content: 'А в объекте ниже - списке, '
         + 'необходимо массив формировать прям во внутрь описания.',
       },
+      'Сформировать массив - мало, хочется организовать условия на его содержимое!',
       {
         component: 'list',
         content: [
@@ -125,7 +148,7 @@ function environment() {
         component: 'input',
         content: {
           title: 'Заголовок поля',
-          text: 'Текст поля',
+          text: `"${ TEST_DATA.input }" - интерполяция в строках в деле!`,
           description: 'Дополнительное описание',
         },
       },
