@@ -10,6 +10,12 @@
   * [Установка](#Установка)
   * [Пример использования](#Пример-использования)
   * [Параметры](#Параметры)
+    * [Инициализация](#Инициализация)
+    * [Операторы](#Операторы)
+      * [Объявление](#Объявление)
+      * [Условия](#Условия)
+      * [Циклы](#Циклы)
+      * [Шаблоны](#Шаблоны)
     * [Настройки парсера](#Настройки-парсера)
     * [Инпут-Аутпут Дата-Сеттингс (IO-DS)](#Инпут-Аутпут-Дата-Сеттингс-IO-DS)
       * [Исключения](#Исключения)
@@ -42,24 +48,37 @@ yarn add priprava
         "component": "title",
         "content": {
           "$temp": true,
-          "template": "${ title }"
-        }
+          "template": "${ title }",
+        },
       },
+      {
+        "$temp": true,
+        "if": "promo.has",
+        "template": {
+          "component": "promo",
+          "content": {
+            "$temp": true,
+            "template": "Осторожно, продакт-плейсмент: ${ promo.text }",
+          },
+        },
+      },
+      "В объектах ниже меняется только строка. Вывод, шаблонизируем его.",
       {
         "$temp": true,
         "for": {
           "item": "thisText",
           "mode": "of",
-          "data": "text"
+          "data": "text",
         },
         "template": {
           "component": "text",
           "content": {
             "$temp": true,
-            "template": "${ thisText }"
-          }
-        }
+            "template": "${ thisText }",
+          },
+        },
       },
+      "Сформировать массив - мало, хочется организовать условия на его содержимое!",
       {
         "component": "list",
         "content": {
@@ -67,10 +86,14 @@ yarn add priprava
           "for": {
             "item": "thisItem",
             "mode": "of",
-            "data": "list"
+            "data": "list",
           },
-          "template": "${ thisItem }"
-        }
+          "template": {
+            "$temp": true,
+            "if": "thisItem.length <= 70",
+            "template": "${ thisItem }",
+          },
+        },
       },
       {
         "component": "input",
@@ -78,12 +101,12 @@ yarn add priprava
           "title": "Заголовок поля",
           "text": {
             "$temp": true,
-            "template": "${ input }"
+            "template": "\"${ input }\" - интерполяция в строках в деле!",
           },
-          "description": "Дополнительное описание"
-        }
-      }
-    ]
+          "description": "Дополнительное описание",
+        },
+      },
+    ],
   }
   ```
 </details>
@@ -98,6 +121,10 @@ yarn add priprava
   ```json
   {
     "title": "Пример объекта, который должен сформировать класс.",
+    "promo": {
+      "has": true,
+      "text": "Сомневаетесь? Даже повара согласны, что priprava - это клёво!",
+    },
     "text": [
       "Это описание компоненты текста.",
       "Полагаю, таких параграфов может быть несколько, поэтому необходимо это всё описывать циклом.",
@@ -107,7 +134,8 @@ yarn add priprava
       "Элемент списка 1",
       "Элемент списка 2",
       "...",
-      "Тут ещё может быть куча элементов"
+      "Тут ещё может быть куча элементов",
+      "А эта строка не будет выведена, так как длина текста превышает описанные в шаблоне условия."
     ],
     "input": "Текст поля"
   }
@@ -140,7 +168,7 @@ yarn add priprava
 import Priprava from 'priprava';
 import template from './template.json';
 import data from './data.json';
-import settings from './settings';
+import { settings } from './settings';
 
 const priprava = new Priprava({
   data,
@@ -155,7 +183,7 @@ if (!parsed) {  // undefined
   console.log('Результат парсинга - ничего');
 }
 
-console.log(parsed);  // см. в пример результата
+console.log(parsed.data);  // см. в пример результата
 ```
 
 <details>
@@ -173,18 +201,21 @@ console.log(parsed);  // см. в пример результата
         content: 'Пример объекта, который должен сформировать класс.',
       },
       {
+        component: 'promo',
+        content: "Осторожно, продакт-плейсмент: Сомневаетесь? Даже повара согласны, что priprava - это клёво!",
+      },
+      'В объектах ниже меняется только строка. Вывод, шаблонизируем его.',
+      {
         component: 'text',
         content: 'Это описание компоненты текста.',
       },
       {
         component: 'text',
-        content: 'Полагаю, таких параграфов может быть несколько, '
-        + 'поэтому необходимо это всё описывать циклом.',
+        content: 'Полагаю, таких параграфов может быть несколько, поэтому необходимо это всё описывать циклом.',
       },
       {
         component: 'text',
-        content: 'А в объекте ниже - списке, '
-        + 'необходимо массив формировать прям во внутрь описания.',
+        content: 'А в объекте ниже - списке, необходимо массив формировать прям во внутрь описания.',
       },
       {
         component: 'list',
@@ -199,7 +230,7 @@ console.log(parsed);  // см. в пример результата
         component: 'input',
         content: {
           title: 'Заголовок поля',
-          text: 'Текст поля',
+          text: '"Текст поля" - интерполяция в строках в деле!',
           description: 'Дополнительное описание',
         },
       },
@@ -209,6 +240,134 @@ console.log(parsed);  // см. в пример результата
 </details>
 
 ### Параметры
+
+#### Инициализация
+
+```ts
+// ... - объявление всех данные.
+
+const priprava = new Priprava({
+  data,
+  settings,
+});
+
+// ...
+```
+
+* `data` - стор (хранилище), `object` со всеми динамическими данными;
+* `settings` - [настройки парсера](#Настройки-парсера).
+
+У `Priprava` имеется публичный метод `parse`, которому нужно передать шаблон, требующий обработки:
+
+```ts
+// продолжение листинга выше:
+
+const parsed = priprava.parse({
+  data: template
+});
+
+// ... - дальнейшие действия с результатом.
+```
+
+Шаблонами могут являться данные любого типа. Либо парсер сможет найти в них шаблонизацию, либо не сможет. Конечно же, логичнее всего отправлять туда что-то интерфейса `[key: string]: any`, чтобы в парсинге был смысл.
+
+В случае безрезультатной обработки - вернётся `undefined`. Если не получится найти шаблонизацию в данных, то они будут возращены в том виде, в котором были отосланы, как успешная обработка.
+
+> [Про интерфейс данных, с которым работают все методы Priprava.](#Инпут-Аутпут-Дата-Сеттингс-IO-DS)
+
+Распарсенный шаблон следует искать в `data` результата. Ссылочка выше - не просто так.
+
+#### Операторы
+
+##### Объявление
+> `$temp` = `boolean`
+
+Флаг (`true`, `false` - не важно), указывающий парсеру на то, что данный объект является объектом шаблонизации.
+
+Интерфейс: [`PripravaDescriptionInterface`](src/utils/interfaces/priprava/parser.ts)
+
+Шаблонизация без шаблона - глупость, поэтому для объявления обязателен оператор [`template`](#Шаблоны).
+
+<span id="example-object"></span>
+<details>
+  <summary>Пример</summary>
+
+  ```json
+  {
+    "$temp": true,
+    "template": "# ${ title }"
+  }
+  ```
+</details>
+
+##### Условия
+> `if` = `string` | `boolean`
+
+Интерфейс: [`PripravaIfOperatorInterface`](src/utils/interfaces/priprava/operators/if.ts)
+
+Строка интерполируется по умолчанию, т.е. исполняется целиком.
+
+<span id="example-if"></span>
+<details>
+  <summary>Пример</summary>
+
+  ```json
+  {
+    "$temp": true,
+    "if": "isPromo",
+    "template": "Реклама: ${ ad }"
+  }
+  ```
+</details>
+
+##### Циклы
+> `for` = { `item`, `mode`, `data` }
+
+Интерфейс: [`PripravaForOperatorInterface`](src/utils/interfaces/priprava/operators/for.ts)
+
+* `item` = `string`;
+* `mode` = `"in"` | `"of"`;
+* `data` = `string`;
+
+> `item` - название переменной итерируемого значения, \
+`mode` - режим итерации, типа `for...in` или `for...of`, \
+`data` - ключ итерируемого объекта в сторе.
+
+<span id="example-for"></span>
+<details>
+  <summary>Пример</summary>
+
+  ```json
+  {
+    "$temp": true,
+    "for": {
+      "item": "thisArticle",
+      "mode": "of",
+      "data": "articles"
+    },
+    "template": "## ${ thisArticle.title }",
+  }
+  ```
+</details>
+
+##### Шаблоны
+> `template` = `string` | `object`
+
+Интерфейс: [`PripravaTemplateInterface`](src/utils/interfaces/priprava/parser.ts)
+
+По умолчанию, интерполяция строки осуществляется по формату [шаблонных строк ES6](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/template_strings) - `${...}`. Однако, если вам хочется что-то другое, например Angular-овская интерполяция - `{{...}}`, то в [настройках парсера](#Настройки-парсера) можно задать кастомное регулярное выражение, пример: `/{{([\s\S]+?)}}/g`.
+
+<span id="example-template"></span>
+<details>
+  <summary>Пример</summary>
+
+  ```json
+  {
+    "$temp": true,
+    "template": "ES${ 3 + 3 } template string"
+  }
+  ```
+</details>
 
 #### Настройки парсера
 
@@ -264,9 +423,9 @@ type InputInterface<
 
 ## Версионирование
 
-Соблюдение [SemVer](http://semver.org/) не гарантируется, однако постараюсь.
+Соблюдение [SemVer](http://semver.org/) не гарантируется, однако постараюсь. Но лучше фиксируйте версию.
 
-> Сорс, так-то, открытый, а вот полную гит-историю никто не обещал. Сорри.
+> Сорс, так-то, открытый, а вот полную гит-историю никто не обещал. Сорри. На GitHub-е с версии [0.4.1](https://github.com/said-m/priprava/commit/e5e4c44375f4a3c774ccb4e59cb15918a5cc8fff). История до того - в [GitLab](http://gitlab.com)-е.
 
 ## Автор
 
@@ -299,6 +458,13 @@ yarn add priprava
 * [Parser settings](#settings-ts)
 * [Usage example](#usage-code)
 * [Results](#parsed-result)
+
+#### Defining
+
+* [Priprava-object](#example-object)
+* [If-operator](#example-if)
+* [For-operator](#example-for)
+* [Template](#example-template)
 
 #### Receive-Return
 

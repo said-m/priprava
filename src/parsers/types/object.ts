@@ -1,4 +1,4 @@
-import { Priprava } from '../..';
+import Priprava from '../..';
 import { isPlainObject } from '../../utils/helpers';
 import { InputInterface, SimpleObjectInterface } from '../../utils/interfaces/common';
 import { PripravaOperatorParseOutputInterface } from '../../utils/interfaces/priprava/operators';
