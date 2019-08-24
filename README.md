@@ -10,6 +10,11 @@
   * [Установка](#Установка)
   * [Пример использования](#Пример-использования)
   * [Параметры](#Параметры)
+    * [Операторы](#Операторы)
+      * [Объявление](#Объявление)
+      * [Условия](#Условия)
+      * [Циклы](#Циклы)
+      * [Шаблоны](#Шаблоны)
     * [Настройки парсера](#Настройки-парсера)
     * [Инпут-Аутпут Дата-Сеттингс (IO-DS)](#Инпут-Аутпут-Дата-Сеттингс-IO-DS)
       * [Исключения](#Исключения)
@@ -162,7 +167,7 @@ yarn add priprava
 import Priprava from 'priprava';
 import template from './template.json';
 import data from './data.json';
-import settings from './settings';
+import { settings } from './settings';
 
 const priprava = new Priprava({
   data,
@@ -177,7 +182,7 @@ if (!parsed) {  // undefined
   console.log('Результат парсинга - ничего');
 }
 
-console.log(parsed);  // см. в пример результата
+console.log(parsed.data);  // см. в пример результата
 ```
 
 <details>
@@ -234,6 +239,98 @@ console.log(parsed);  // см. в пример результата
 </details>
 
 ### Параметры
+
+#### Операторы
+
+##### Объявление
+> `$temp` = `boolean`
+
+Флаг (`true`, `false` - не важно), указывающий парсеру на то, что данный объект является объектом шаблонизации.
+
+Интерфейс: [`PripravaDescriptionInterface`](src/utils/interfaces/priprava/parser.ts)
+
+Шаблонизация без шаблона - глупость, поэтому для объявления обязателен оператор [`template`](#Шаблоны).
+
+<span id="example-object"></span>
+<details>
+  <summary>Пример</summary>
+
+  ```json
+  {
+    "$temp": true,
+    "template": "# ${ title }"
+  }
+  ```
+</details>
+
+##### Условия
+> `if` = `string` | `boolean`
+
+Интерфейс: [`PripravaIfOperatorInterface`](src/utils/interfaces/priprava/operators/if.ts)
+
+Строка интерполируется по умолчанию, т.е. исполняется целиком.
+
+<span id="example-if"></span>
+<details>
+  <summary>Пример</summary>
+
+  ```json
+  {
+    "$temp": true,
+    "if": "isPromo",
+    "template": "Реклама: ${ ad }"
+  }
+  ```
+</details>
+
+##### Циклы
+> `for` = { `item`, `mode`, `data` }
+
+Интерфейс: [`PripravaForOperatorInterface`](src/utils/interfaces/priprava/operators/for.ts)
+
+* `item` = `string`;
+* `mode` = `"in"` | `"of"`;
+* `data` = `string`;
+
+> `item` - название переменной итерируемого значения, \
+`mode` - режим итерации, типа `for...in` или `for...of`, \
+`data` - ключ итерируемого объекта в сторе.
+
+<span id="example-for"></span>
+<details>
+  <summary>Пример</summary>
+
+  ```json
+  {
+    "$temp": true,
+    "for": {
+      "item": "thisArticle",
+      "mode": "of",
+      "data": "articles"
+    },
+    "template": "## ${ thisArticle.title }",
+  }
+  ```
+</details>
+
+##### Шаблоны
+> `template` = `string` | `object`
+
+Интерфейс: [`PripravaTemplateInterface`](src/utils/interfaces/priprava/parser.ts)
+
+По умолчанию, интерполяция строки осуществляется по формату [шаблонных строк ES6](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/template_strings) - `${...}`. Однако, если вам хочется что-то другое, например Angular-овская интерполяция - `{{...}}`, то в [настройках парсера](#Настройки-парсера) можно задать кастомное регулярное выражение, пример: `/{{([\s\S]+?)}}/g`.
+
+<span id="example-template"></span>
+<details>
+  <summary>Пример</summary>
+
+  ```json
+  {
+    "$temp": true,
+    "template": "ES${ 3 + 3 } template string"
+  }
+  ```
+</details>
 
 #### Настройки парсера
 
@@ -324,6 +421,13 @@ yarn add priprava
 * [Parser settings](#settings-ts)
 * [Usage example](#usage-code)
 * [Results](#parsed-result)
+
+#### Defining
+
+* [Priprava-object](#example-object)
+* [If-operator](#example-if)
+* [For-operator](#example-for)
+* [Template](#example-template)
 
 #### Receive-Return
 
