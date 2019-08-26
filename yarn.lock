@@ -305,6 +305,13 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
+"@said-m/common@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@said-m/common/-/common-0.0.1.tgz#e553a06882d5e03a7e7c0bef1aa0bc717b5b4875"
+  integrity sha512-W3CgTpWH9iTPGtXX+9MXXXJszZWs4sup8hFUwQ6QaS+hAkgv7EbweejYcHy/0IQbshPqPH1JPP+aauA8uAZDWA==
+  dependencies:
+    lodash "^4.17.15"
+
 "@types/babel__core@^7.1.0":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.2.tgz#608c74f55928033fce18b99b213c16be4b3d114f"

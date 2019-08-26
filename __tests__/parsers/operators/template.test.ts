@@ -1,5 +1,5 @@
 import { TemplateParser } from '../../../src/parsers/operators';
-import { PripravaModesEnum } from '../../../src/utils/interfaces/priprava';
+import { PripravaModesEnum } from '../../../src/utils/interfaces';
 import { testOperator } from './test';
 import { getSettingModes } from './utils/helpers';
 import { TestDataInterface, TestDescribeInterface } from './utils/interfaces';

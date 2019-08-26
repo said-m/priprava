@@ -1,11 +1,11 @@
+import { ApplyDeepInterface, ObjectInterface, TextInterface } from '@said-m/common/dist/interfaces';
 import { OutputInterface } from 'iods';
-import { ApplyDeepInterface, SimpleObjectInterface, TextInterface } from '../common';
 import { PripravaOperatorsInterface } from './operators';
 
 /** Инициализация парсера */
 export interface PripravaInitInterface {
   /** Переменные окружения */
-  data: SimpleObjectInterface;
+  data: ObjectInterface;
   /** Опции парсера */
   settings: Partial<PripravaInputSettingsInterface>;
 }

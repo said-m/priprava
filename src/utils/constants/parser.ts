@@ -1,4 +1,4 @@
-import { PripravaInputSettingsInterface, PripravaModesEnum } from '../interfaces/priprava';
+import { PripravaInputSettingsInterface, PripravaModesEnum } from '../interfaces';
 
 export const PRIPRAVA_KEY = '$temp';
 

@@ -1,9 +1,9 @@
+import { PartialDeep } from '@said-m/common/dist/interfaces';
 import { InputInterface, OutputInterface } from 'iods';
 import { defaults, isBoolean } from 'lodash';
 import { PRIPRAVA_SETTING_DEFAULTS } from '../../utils/constants/parser';
-import { PartialDeep } from '../../utils/interfaces/common';
-import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces/priprava';
-import { PripravaIfDescriptionInterface, PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface, PripravaOperatorSettingsInterface } from '../../utils/interfaces/priprava/operators';
+import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces';
+import { PripravaIfDescriptionInterface, PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface, PripravaOperatorSettingsInterface } from '../../utils/interfaces/operators';
 import { StringParser } from '../types/string';
 import { TemplateParser } from './template';
 import { AbstractOperatorParser } from './utils/abstract';

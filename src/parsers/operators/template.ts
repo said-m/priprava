@@ -1,9 +1,9 @@
+import { isPlainObject, isText } from '@said-m/common';
+import { ObjectInterface, TextInterface } from '@said-m/common/dist/interfaces';
 import { InputInterface } from 'iods';
 import { PRIPRAVA_KEY } from '../../utils/constants/parser';
-import { isPlainObject, isText } from '../../utils/helpers';
-import { SimpleObjectInterface, TextInterface } from '../../utils/interfaces/common';
-import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces/priprava';
-import { PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface } from '../../utils/interfaces/priprava/operators';
+import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces';
+import { PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface } from '../../utils/interfaces/operators';
 import { ObjectParser, StringParser } from '../types';
 import { AbstractOperatorParser } from './utils/abstract';
 import { getMode } from './utils/helpers';
@@ -108,7 +108,7 @@ export class TemplateParser extends AbstractOperatorParser {
   private parseObject(
     {
       data,
-    }: InputInterface<SimpleObjectInterface>,
+    }: InputInterface<ObjectInterface>,
   ): PripravaOperatorParseOutputInterface {
     const parsed = (
       new ObjectParser({

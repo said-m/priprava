@@ -1,5 +1,5 @@
 import { ObjectParser } from '../../../src/parsers/types';
-import { PripravaDescriptionInterface } from '../../../src/utils/interfaces/priprava';
+import { PripravaDescriptionInterface } from '../../../src/utils/interfaces';
 import { TEST_SETTINGS } from '../../utils/constants';
 
 describe(ObjectParser.name, () => {

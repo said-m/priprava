@@ -1,8 +1,8 @@
+import { isPlainObject } from '@said-m/common';
+import { ObjectInterface } from '@said-m/common/dist/interfaces';
 import { InputInterface } from 'iods';
 import Priprava from '../..';
-import { isPlainObject } from '../../utils/helpers';
-import { SimpleObjectInterface } from '../../utils/interfaces/common';
-import { PripravaOperatorParseOutputInterface } from '../../utils/interfaces/priprava/operators';
+import { PripravaOperatorParseOutputInterface } from '../../utils/interfaces/operators';
 import { ForOperatorParser, IfOperatorParser } from '../operators';
 import { TemplateParser } from '../operators/template';
 import { AbstractTypeParser } from './utils/abstract';
@@ -13,7 +13,7 @@ export class ObjectParser extends AbstractTypeParser {
   // PUBLIC
 
   parse(
-    input: InputInterface<SimpleObjectInterface>,
+    input: InputInterface<ObjectInterface>,
   ): PripravaOperatorParseOutputInterface {
     if (!isPlainObject(input.data)) {
       return;
@@ -32,7 +32,7 @@ export class ObjectParser extends AbstractTypeParser {
 
   /** Обработка объекта шаблонизации */
   private parsePriprava(
-    input: InputInterface<SimpleObjectInterface>,
+    input: InputInterface<ObjectInterface>,
   ): PripravaOperatorParseOutputInterface {
     /** Результат применения If */
     const ifParsed = (
@@ -78,9 +78,9 @@ export class ObjectParser extends AbstractTypeParser {
 
   /** Обработка обычного объекта */
   private parseDefault(
-    input: InputInterface<SimpleObjectInterface>,
+    input: InputInterface<ObjectInterface>,
   ): PripravaOperatorParseOutputInterface {
-    const result: SimpleObjectInterface = {};
+    const result: ObjectInterface = {};
 
     // Поиск и обработка вложенных объектов
     for (const [thisItemKey, thisItem] of Object.entries(input.data)) {

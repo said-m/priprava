@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash';
 import Priprava from '../src';
-import { PripravaParserOutputInterface } from '../src/utils/interfaces/priprava';
+import { PripravaParserOutputInterface } from '../src/utils/interfaces';
 import { TEST_DATA, TEST_SETTINGS } from './utils/constants';
 
 describe('Общая проверка', () => {

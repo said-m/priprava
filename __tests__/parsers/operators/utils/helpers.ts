@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash';
-import { PripravaInputSettingsInterface, PripravaModesEnum, PripravaModeSettingsInterface } from '../../../../src/utils/interfaces/priprava';
+import { PripravaInputSettingsInterface, PripravaModesEnum, PripravaModeSettingsInterface } from '../../../../src/utils/interfaces';
 import { TEST_SETTINGS } from '../../../utils/constants';
 
 export interface GetSettingModesOutputInterface {

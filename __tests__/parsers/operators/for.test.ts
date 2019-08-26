@@ -1,12 +1,12 @@
+import { ObjectInterface } from '@said-m/common/dist/interfaces';
 import { omit } from 'lodash';
 import { ForOperatorParser } from '../../../src/parsers/operators';
-import { SimpleObjectInterface } from '../../../src/utils/interfaces/common';
-import { PripravaModesEnum } from '../../../src/utils/interfaces/priprava';
+import { PripravaModesEnum } from '../../../src/utils/interfaces';
 import { testOperator } from './test';
 import { getSettingModes } from './utils/helpers';
 import { TestDescribeInterface } from './utils/interfaces';
 
-interface TestDataInterface extends SimpleObjectInterface {
+interface TestDataInterface extends ObjectInterface {
   list: Array<string>;
 }
 

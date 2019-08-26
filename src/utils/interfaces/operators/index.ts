@@ -1,5 +1,5 @@
+import { ObjectInterface } from '@said-m/common/dist/interfaces';
 import { InputInterface, OutputInterface } from 'iods';
-import { SimpleObjectInterface } from '../../common';
 import { PripravaInputSettingsInterface, PripravaTemplateInterface } from '../parser';
 import { PripravaForDescriptionInterface } from './for';
 import { PripravaIfDescriptionInterface } from './if';
@@ -26,7 +26,7 @@ export type PripravaOperatorInitInterface = InputInterface<
 /** Опции методов парсера */
 export interface PripravaOperatorSettingsInterface {
   /** Переменные окружения */
-  scope: SimpleObjectInterface;
+  scope: ObjectInterface;
   /** Настройки парсера */
   initial: PripravaInputSettingsInterface;
 }

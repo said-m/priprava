@@ -1,7 +1,7 @@
+import { TextInterface } from '@said-m/common/dist/interfaces';
 import { InputInterface } from 'iods';
 import { template } from 'lodash';
-import { TextInterface } from '../../utils/interfaces/common';
-import { PripravaStringParseOutputInterface } from '../../utils/interfaces/priprava/operators';
+import { PripravaStringParseOutputInterface } from '../../utils/interfaces/operators';
 import { AbstractTypeParser } from './utils/abstract';
 
 /** Обработчик объектов */

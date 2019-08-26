@@ -1,4 +1,4 @@
-import { PripravaDescriptionInterface } from '../../../utils/interfaces/priprava';
+import { PripravaDescriptionInterface } from '../../../utils/interfaces';
 import { AbstractParser } from '../../abstract';
 
 export abstract class AbstractOperatorParser extends AbstractParser {
