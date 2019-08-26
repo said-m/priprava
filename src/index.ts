@@ -1,8 +1,9 @@
+import { InputInterface } from 'iods';
 import { cloneDeep, defaults } from 'lodash';
 import { ObjectParser } from './parsers/types';
 import { PRIPRAVA_SETTING_DEFAULTS } from './utils/constants/parser';
 import { isArray, isPlainObject } from './utils/helpers';
-import { InputInterface, SimpleObjectInterface } from './utils/interfaces/common';
+import { SimpleObjectInterface } from './utils/interfaces/common';
 import { PripravaInitInterface, PripravaInputSettingsInterface, PripravaParserOutputInterface } from './utils/interfaces/priprava';
 
 /** Priprava - парсер динамических JSON-ов */

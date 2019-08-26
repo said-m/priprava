@@ -1,4 +1,4 @@
-import { InputInterface } from '../utils/interfaces/common';
+import { InputInterface } from 'iods';
 import { PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface, PripravaOperatorSettingsInterface } from '../utils/interfaces/priprava/operators';
 
 /** Общие параметры обработчиков */

@@ -1,4 +1,5 @@
-import { InputInterface, OutputInterface, SimpleObjectInterface } from '../../common';
+import { InputInterface, OutputInterface } from 'iods';
+import { SimpleObjectInterface } from '../../common';
 import { PripravaInputSettingsInterface, PripravaTemplateInterface } from '../parser';
 import { PripravaForDescriptionInterface } from './for';
 import { PripravaIfDescriptionInterface } from './if';

@@ -1,6 +1,7 @@
+import { InputInterface } from 'iods';
 import Priprava from '../..';
 import { isPlainObject } from '../../utils/helpers';
-import { InputInterface, SimpleObjectInterface } from '../../utils/interfaces/common';
+import { SimpleObjectInterface } from '../../utils/interfaces/common';
 import { PripravaOperatorParseOutputInterface } from '../../utils/interfaces/priprava/operators';
 import { ForOperatorParser, IfOperatorParser } from '../operators';
 import { TemplateParser } from '../operators/template';

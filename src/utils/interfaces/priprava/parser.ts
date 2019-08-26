@@ -1,4 +1,5 @@
-import { ApplyDeepInterface, OutputInterface, SimpleObjectInterface, TextInterface } from '../common';
+import { OutputInterface } from 'iods';
+import { ApplyDeepInterface, SimpleObjectInterface, TextInterface } from '../common';
 import { PripravaOperatorsInterface } from './operators';
 
 /** Инициализация парсера */

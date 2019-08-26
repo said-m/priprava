@@ -1,5 +1,6 @@
+import { InputInterface } from 'iods';
 import { template } from 'lodash';
-import { InputInterface, TextInterface } from '../../utils/interfaces/common';
+import { TextInterface } from '../../utils/interfaces/common';
 import { PripravaStringParseOutputInterface } from '../../utils/interfaces/priprava/operators';
 import { AbstractTypeParser } from './utils/abstract';
 
