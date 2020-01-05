@@ -2,6 +2,11 @@
 
 Шаблонизатор, позволяющий описывать JSON-ы с динамическим данными, подставляемыми в рантайме, путём описания специальных параметров.
 
+[![npm version](https://badge.fury.io/js/priprava.svg)](https://npmjs.com/package/priprava)
+[![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
+![npm type definitions](https://img.shields.io/npm/types/priprava)
+![npm license](https://img.shields.io/npm/l/priprava)
+
 > [EN documentation](https://bit.ly/18gECvy) or [en](#english)
 
 ## Навигация
