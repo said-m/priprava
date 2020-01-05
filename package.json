@@ -14,7 +14,7 @@
     "validate": "tsc --noEmit",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --config jest.config.json",
-    "test-coverage": "yarn test --coverage",
+    "test:coverage": "yarn test --coverage",
     "prepack": "yarn build",
     "postpack": "rm -rf ./dist"
   },
