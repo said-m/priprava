@@ -1,7 +1,7 @@
+import { isArray, isPlainObject } from '@said-m/common';
 import { cloneDeep, isString } from 'lodash';
-import { isArray, isPlainObject } from '../../utils/helpers';
-import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces/priprava';
-import { PripravaForDescriptionInterface, PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface } from '../../utils/interfaces/priprava/operators';
+import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces';
+import { PripravaForDescriptionInterface, PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface } from '../../utils/interfaces/operators';
 import { TemplateParser } from './template';
 import { AbstractOperatorParser } from './utils/abstract';
 import { getMode } from './utils/helpers';
@@ -91,7 +91,11 @@ export class ForOperatorParser extends AbstractOperatorParser {
         ...this.settings.scope,
         // Если 'of' - то содержимое, иначе 'in' - ключ
         [input.data.for.item]: input.data.for.mode === 'of'
-          ? iteratee[thisIndex]
+          ? (
+            isPlainObject(iteratee)
+              ? iteratee[thisIndex]
+              : iteratee[parseInt(thisIndex)]
+          )
           : thisIndex,
       };
 

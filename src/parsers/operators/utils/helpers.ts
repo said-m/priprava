@@ -1,4 +1,4 @@
-import { PripravaModesEnum, PripravaModeSettingsInterface } from '../../../utils/interfaces/priprava';
+import { PripravaModesEnum, PripravaModeSettingsInterface } from '../../../utils/interfaces';
 
 export function getMode(
   mode: keyof PripravaModeSettingsInterface,

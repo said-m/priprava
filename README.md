@@ -2,9 +2,18 @@
 
 Шаблонизатор, позволяющий описывать JSON-ы с динамическим данными, подставляемыми в рантайме, путём описания специальных параметров.
 
-## Навигация
+[![npm version](https://badge.fury.io/js/priprava.svg)](https://npmjs.com/package/priprava)
+[![Build Status](https://travis-ci.com/said-m/priprava.svg?branch=master)](https://travis-ci.com/said-m/priprava)
+[![Coverage Status](https://coveralls.io/repos/github/said-m/priprava/badge.svg?branch=master)](https://coveralls.io/github/said-m/priprava?branch=master)
+[![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
+[![npm type definitions](https://img.shields.io/npm/types/priprava)](http://www.typescriptlang.org/)
+[![npm license](https://img.shields.io/npm/l/priprava)](LICENSE)
 
 > [EN documentation](https://bit.ly/18gECvy) or [en](#english)
+
+## Навигация
+
+<img align="right" src="./assets/priprava.svg" width="130">
 
 * [Геттинг Стартед](#Геттинг-Стартед)
   * [Установка](#Установка)

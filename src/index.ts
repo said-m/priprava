@@ -1,14 +1,15 @@
+import { isArray, isPlainObject } from '@said-m/common';
+import { ObjectInterface } from '@said-m/common/dist/interfaces';
+import { InputInterface } from 'iods';
 import { cloneDeep, defaults } from 'lodash';
 import { ObjectParser } from './parsers/types';
 import { PRIPRAVA_SETTING_DEFAULTS } from './utils/constants/parser';
-import { isArray, isPlainObject } from './utils/helpers';
-import { InputInterface, SimpleObjectInterface } from './utils/interfaces/common';
-import { PripravaInitInterface, PripravaInputSettingsInterface, PripravaParserOutputInterface } from './utils/interfaces/priprava';
+import { PripravaInitInterface, PripravaInputSettingsInterface, PripravaParserOutputInterface } from './utils/interfaces';
 
 /** Priprava - парсер динамических JSON-ов */
 export default class Priprava {
   /** Переменные окружения */
-  readonly store: SimpleObjectInterface;
+  readonly store: ObjectInterface;
   /** Опции */
   readonly settings: PripravaInputSettingsInterface;
 
@@ -68,7 +69,7 @@ export default class Priprava {
   private parseObject(
     {
       data,
-    }: InputInterface<SimpleObjectInterface>,
+    }: InputInterface<ObjectInterface>,
   ): PripravaParserOutputInterface {
     const parsed = (
       new ObjectParser({

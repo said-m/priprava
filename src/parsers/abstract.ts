@@ -1,5 +1,5 @@
-import { InputInterface } from '../utils/interfaces/common';
-import { PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface, PripravaOperatorSettingsInterface } from '../utils/interfaces/priprava/operators';
+import { InputInterface } from 'iods';
+import { PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface, PripravaOperatorSettingsInterface } from '../utils/interfaces/operators';
 
 /** Общие параметры обработчиков */
 export abstract class AbstractParser {

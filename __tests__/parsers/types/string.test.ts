@@ -1,5 +1,5 @@
+import { InputInterface } from 'iods';
 import { StringParser } from '../../../src/parsers/types';
-import { InputInterface } from '../../../src/utils/interfaces/common';
 import { TEST_DATA, TEST_SETTINGS } from '../../utils/constants';
 
 describe(StringParser.name, () => {

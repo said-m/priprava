@@ -1,4 +1,4 @@
-import { isPlainObject } from '../../../src/utils/helpers';
+import { isPlainObject } from '@said-m/common';
 import { TEST_SETTINGS } from '../../utils/constants';
 import { TestOperatorInterface } from './utils/interfaces';
 

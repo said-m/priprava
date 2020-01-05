@@ -1,6 +1,6 @@
+import { ObjectInterface } from '@said-m/common/dist/interfaces';
 import { ForOperatorParser, IfOperatorParser, TemplateParser } from '../../../../src/parsers/operators';
-import { SimpleObjectInterface } from '../../../../src/utils/interfaces/common';
-import { PripravaDescriptionInterface, PripravaInputSettingsInterface, PripravaTemplateInterface } from '../../../../src/utils/interfaces/priprava';
+import { PripravaDescriptionInterface, PripravaInputSettingsInterface, PripravaTemplateInterface } from '../../../../src/utils/interfaces';
 import { GetSettingModesOutputInterface } from './helpers';
 
 // COMMON
@@ -9,7 +9,7 @@ export type TestInterface<Class, Environment> = (
   input: TestInputInterface<Class, Environment>,
 ) => void;
 
-export interface TestDescribeInterface<Input = SimpleObjectInterface> {
+export interface TestDescribeInterface<Input = ObjectInterface> {
   data: Input;
   templates: {
     default: PripravaDescriptionInterface;
@@ -40,7 +40,7 @@ export type TestOperatorListInterface =
 export type TestOperatorInterface = TestInterface<
   TestOperatorListInterface,
   {
-    environment: SimpleObjectInterface,
+    environment: ObjectInterface,
     tests: {
       is: TestDataInterface,
       clear: TestDataInterface,
