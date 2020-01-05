@@ -2,9 +2,11 @@
 
 Шаблонизатор, позволяющий описывать JSON-ы с динамическим данными, подставляемыми в рантайме, путём описания специальных параметров.
 
+> [EN documentation](https://bit.ly/18gECvy) or [en](#english)
+
 ## Навигация
 
-> [EN documentation](https://bit.ly/18gECvy) or [en](#english)
+<img align="right" src="./assets/priprava.svg" width="130">
 
 * [Геттинг Стартед](#Геттинг-Стартед)
   * [Установка](#Установка)
