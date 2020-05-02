@@ -35,19 +35,19 @@
   },
   "bugs": "https://github.com/said-m/priprava/issues",
   "devDependencies": {
-    "@types/jest": "^24.0.16",
-    "@types/lodash": "^4.14.136",
-    "@types/node": "^12.6.9",
-    "coveralls": "^3.0.9",
+    "@types/jest": "^25.2.1",
+    "@types/lodash": "^4.14.150",
+    "@types/node": "^13.13.4",
+    "coveralls": "^3.1.0",
     "husky": "^3.0.2",
-    "jest": "^24.8.0",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.18.0",
-    "typescript": "^3.5.3"
+    "jest": "^25.5.4",
+    "ts-jest": "^25.4.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@said-m/common": "^0.0.1",
-    "iods": "^1.0.1",
+    "@said-m/common": "^0.0.4",
+    "iods": "^2.0.0",
     "lodash": "^4.17.15"
   }
 }
