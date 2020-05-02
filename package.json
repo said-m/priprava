@@ -1,6 +1,6 @@
 {
   "name": "priprava",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Template engine for describing JSON with dynamic data.",
   "keywords": [
     "json",
