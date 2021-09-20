@@ -1,5 +1,6 @@
 import { isArray, isPlainObject } from '@said-m/common';
-import { cloneDeep, isString } from 'lodash';
+import cloneDeep from 'lodash.clonedeep';
+import isString from 'lodash.isstring';
 import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces';
 import { PripravaForDescriptionInterface, PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface } from '../../utils/interfaces/operators';
 import { TemplateParser } from './template';
@@ -42,7 +43,7 @@ export class ForOperatorParser extends AbstractOperatorParser {
   /** Очистка объекта от параметров оператора */
   static clear(data: unknown): unknown {
     if (ForOperatorParser.is(data)) {
-      delete data[ForOperatorParser.key];
+      delete (data as Record<string, unknown>)[ForOperatorParser.key];
     }
 
     return data;

@@ -1,5 +1,5 @@
 import { ObjectInterface } from '@said-m/common/dist/interfaces';
-import { omit } from 'lodash';
+import omit from 'lodash.omit';
 import { ForOperatorParser } from '../../../src/parsers/operators';
 import { PripravaModesEnum } from '../../../src/utils/interfaces';
 import { testOperator } from './test';

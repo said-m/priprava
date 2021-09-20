@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash.clonedeep';
 import { PripravaInputSettingsInterface, PripravaModesEnum, PripravaModeSettingsInterface } from '../../../../src/utils/interfaces';
 import { TEST_SETTINGS } from '../../../utils/constants';
 
