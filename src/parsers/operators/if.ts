@@ -1,7 +1,7 @@
 import { PartialDeep } from '@said-m/common/dist/interfaces';
 import { InputInterface, OutputInterface } from 'iods';
 import defaults from 'lodash.defaults';
-import isBoolean from 'lodash.isBoolean';
+import isBoolean from 'lodash.isboolean';
 import { PRIPRAVA_SETTING_DEFAULTS } from '../../utils/constants/parser';
 import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces';
 import { PripravaIfDescriptionInterface, PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface, PripravaOperatorSettingsInterface } from '../../utils/interfaces/operators';
@@ -35,7 +35,7 @@ export class IfOperatorParser extends AbstractOperatorParser {
   /** Очистка объекта от параметров оператора */
   static clear(data: unknown): unknown {
     if (IfOperatorParser.is(data)) {
-      delete (<Record<string, unknown>>data)[IfOperatorParser.key];
+      delete (data as Record<string, unknown>)[IfOperatorParser.key];
     }
 
     return data;

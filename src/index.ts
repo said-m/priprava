@@ -1,7 +1,7 @@
 import { isArray, isPlainObject } from '@said-m/common';
 import { ObjectInterface } from '@said-m/common/dist/interfaces';
 import { InputInterface } from 'iods';
-import cloneDeep from 'lodash.cloneDeep';
+import cloneDeep from 'lodash.clonedeep';
 import defaults from 'lodash.defaults';
 import { ObjectParser } from './parsers/types';
 import { PRIPRAVA_SETTING_DEFAULTS } from './utils/constants/parser';
