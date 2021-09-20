@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash.clonedeep';
 import Priprava from '../src';
 import { PripravaParserOutputInterface } from '../src/utils/interfaces';
 import { TEST_DATA, TEST_SETTINGS } from './utils/constants';

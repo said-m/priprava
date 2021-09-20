@@ -1,6 +1,7 @@
 import { PartialDeep } from '@said-m/common/dist/interfaces';
 import { InputInterface, OutputInterface } from 'iods';
-import { defaults, isBoolean } from 'lodash';
+import defaults from 'lodash.defaults';
+import isBoolean from 'lodash.isBoolean';
 import { PRIPRAVA_SETTING_DEFAULTS } from '../../utils/constants/parser';
 import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces';
 import { PripravaIfDescriptionInterface, PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface, PripravaOperatorSettingsInterface } from '../../utils/interfaces/operators';

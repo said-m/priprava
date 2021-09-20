@@ -1,6 +1,6 @@
 import { TextInterface } from '@said-m/common/dist/interfaces';
 import { InputInterface } from 'iods';
-import { template } from 'lodash';
+import template from 'lodash.template';
 import { PripravaStringParseOutputInterface } from '../../utils/interfaces/operators';
 import { AbstractTypeParser } from './utils/abstract';
 

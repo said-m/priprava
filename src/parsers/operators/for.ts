@@ -1,5 +1,6 @@
 import { isArray, isPlainObject } from '@said-m/common';
-import { cloneDeep, isString } from 'lodash';
+import cloneDeep from 'lodash.cloneDeep';
+import isString from 'lodash.isString';
 import { PripravaDescriptionInterface, PripravaModesEnum } from '../../utils/interfaces';
 import { PripravaForDescriptionInterface, PripravaOperatorParseInputInterface, PripravaOperatorParseOutputInterface } from '../../utils/interfaces/operators';
 import { TemplateParser } from './template';

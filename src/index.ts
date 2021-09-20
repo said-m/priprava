@@ -1,7 +1,8 @@
 import { isArray, isPlainObject } from '@said-m/common';
 import { ObjectInterface } from '@said-m/common/dist/interfaces';
 import { InputInterface } from 'iods';
-import { cloneDeep, defaults } from 'lodash';
+import cloneDeep from 'lodash.cloneDeep';
+import defaults from 'lodash.defaults';
 import { ObjectParser } from './parsers/types';
 import { PRIPRAVA_SETTING_DEFAULTS } from './utils/constants/parser';
 import { PripravaInitInterface, PripravaInputSettingsInterface, PripravaParserOutputInterface } from './utils/interfaces';
