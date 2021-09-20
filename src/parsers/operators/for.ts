@@ -42,7 +42,7 @@ export class ForOperatorParser extends AbstractOperatorParser {
   /** Очистка объекта от параметров оператора */
   static clear(data: unknown): unknown {
     if (ForOperatorParser.is(data)) {
-      delete data[ForOperatorParser.key];
+      delete (<Record<string, unknown>>data)[ForOperatorParser.key];
     }
 
     return data;

@@ -34,7 +34,7 @@ export class IfOperatorParser extends AbstractOperatorParser {
   /** Очистка объекта от параметров оператора */
   static clear(data: unknown): unknown {
     if (IfOperatorParser.is(data)) {
-      delete data[IfOperatorParser.key];
+      delete (<Record<string, unknown>>data)[IfOperatorParser.key];
     }
 
     return data;
