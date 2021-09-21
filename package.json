@@ -1,6 +1,6 @@
 {
   "name": "priprava",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Template engine for describing JSON with dynamic data with variables, conditions and loops.",
   "author": "Said Magomedov <saids.inbox@gmail.com>",
   "license": "MIT",
